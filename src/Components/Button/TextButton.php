@@ -10,7 +10,7 @@ class TextButton extends AbstractButton
      * @param string $text
      * @return self
      */
-    public function text(string $text): TextButton
+    public function text(string $text)
     {
         $this->payload['text'] = $text;
 
@@ -24,7 +24,7 @@ class TextButton extends AbstractButton
      * @param string|null $displayText
      * @return self
      */
-    public static function create(string $url = null, string $displayText = null): TextButton
+    public static function create(string $url = null, string $displayText = null)
     {
         $button = new static;
 

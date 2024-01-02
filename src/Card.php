@@ -28,7 +28,7 @@ class Card implements Arrayable
      * @param string|null $imageStyle Configure the avatar image style, one of IMAGE or AVATAR
      * @return self
      */
-    public function header(string $title, string $subtitle = null, string $imageUrl = null, string $imageStyle = null): Card
+    public function header(string $title, string $subtitle = null, string $imageUrl = null, string $imageStyle = null)
     {
         $header = [
             'title' => $title,
@@ -57,7 +57,7 @@ class Card implements Arrayable
      * @param \NotificationChannels\GoogleChat\Section|\NotificationChannels\GoogleChat\Section[]
      * @return self
      */
-    public function section($section): Card
+    public function section($section)
     {
         $sections = Arr::wrap($section);
 
@@ -84,7 +84,7 @@ class Card implements Arrayable
      * @param \NotificationChannels\GoogleChat\Section|\NotificationChannels\GoogleChat\Section[]|null $section
      * @return self
      */
-    public static function create($section = null): Card
+    public static function create($section = null)
     {
         $card = new static;
 

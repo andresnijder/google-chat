@@ -12,7 +12,7 @@ class KeyValue extends AbstractWidget
      * @param string $message
      * @return self
      */
-    public function topLabel(string $message): KeyValue
+    public function topLabel(string $message)
     {
         $this->payload['topLabel'] = $message;
 
@@ -25,7 +25,7 @@ class KeyValue extends AbstractWidget
      * @param string $message
      * @return self
      */
-    public function content(string $message): KeyValue
+    public function content(string $message)
     {
         $this->payload['content'] = $message;
 
@@ -38,7 +38,7 @@ class KeyValue extends AbstractWidget
      * @param string $message
      * @return self
      */
-    public function bottomLabel(string $message): KeyValue
+    public function bottomLabel(string $message)
     {
         $this->payload['bottomLabel'] = $message;
 
@@ -51,7 +51,7 @@ class KeyValue extends AbstractWidget
      * @param bool $value
      * @return self
      */
-    public function setContentMultiline(bool $value): KeyValue
+    public function setContentMultiline(bool $value)
     {
         $this->payload['contentMultiline'] = $value;
 
@@ -64,7 +64,7 @@ class KeyValue extends AbstractWidget
      * @param string $url
      * @return self
      */
-    public function onClick(string $url): KeyValue
+    public function onClick(string $url)
     {
         $this->payload['onClick'] = [
             'openLink' => [
@@ -81,7 +81,7 @@ class KeyValue extends AbstractWidget
      * @param string $icon
      * @return self
      */
-    public function icon(string $icon): KeyValue
+    public function icon(string $icon)
     {
         $this->payload['icon'] = $icon;
 
@@ -94,7 +94,7 @@ class KeyValue extends AbstractWidget
      * @param \NotificationChannels\GoogleChat\Components\Button\AbstractButton $button
      * @return self
      */
-    public function button(AbstractButton $button): KeyValue
+    public function button(AbstractButton $button)
     {
         $this->payload['button'] = $button;
 
@@ -109,7 +109,7 @@ class KeyValue extends AbstractWidget
      * @param string|null $bottomLabel
      * @return self
      */
-    public static function create(string $topLabel = null, string $content = null, string $bottomLabel = null): KeyValue
+    public static function create(string $topLabel = null, string $content = null, string $bottomLabel = null)
     {
         $widget = new static;
 

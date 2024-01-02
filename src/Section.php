@@ -26,7 +26,7 @@ class Section implements Arrayable
      * @param string $text
      * @return self
      */
-    public function header(string $text): Section
+    public function header(string $text)
     {
         $this->payload['header'] = $text;
 
@@ -39,7 +39,7 @@ class Section implements Arrayable
      * @param \NotificationChannels\GoogleChat\Widgets\AbstractWidget|\NotificationChannels\GoogleChat\Widgets\AbstractWidget[] $widget
      * @return self
      */
-    public function widget($widget): Section
+    public function widget($widget)
     {
         $widgets = Arr::wrap($widget);
 
@@ -66,7 +66,7 @@ class Section implements Arrayable
      * @param \NotificationChannels\GoogleChat\Widgets\AbstractWidget|\NotificationChannels\GoogleChat\Widgets\AbstractWidget[] $widgets
      * @return self
      */
-    public static function create($widgets = null): Section
+    public static function create($widgets = null)
     {
         $section = new static;
 

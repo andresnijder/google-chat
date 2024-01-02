@@ -20,7 +20,7 @@ abstract class AbstractButton implements Arrayable
      * @param string $url
      * @return self
      */
-    public function url(string $url): self
+    public function url(string $url)
     {
         $this->payload['onClick'] = [
             'openLink' => [

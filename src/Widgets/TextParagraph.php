@@ -10,7 +10,7 @@ class TextParagraph extends AbstractWidget
      * @param string $message
      * @return self
      */
-    public function text(string $message): TextParagraph
+    public function text(string $message)
     {
         $this->payload['text'] = ($this->payload['text'] ?? '').$message;
 
@@ -23,7 +23,7 @@ class TextParagraph extends AbstractWidget
      * @param string $message
      * @return self
      */
-    public function bold(string $message): TextParagraph
+    public function bold(string $message)
     {
         return $this->text("<b>{$message}</b>");
     }
@@ -34,7 +34,7 @@ class TextParagraph extends AbstractWidget
      * @param string $message
      * @return self
      */
-    public function italic(string $message): TextParagraph
+    public function italic(string $message)
     {
         return $this->text("<i>{$message}</i>");
     }
@@ -45,7 +45,7 @@ class TextParagraph extends AbstractWidget
      * @param string $message
      * @return self
      */
-    public function underline(string $message): TextParagraph
+    public function underline(string $message)
     {
         return $this->text("<u>{$message}</u>");
     }
@@ -56,7 +56,7 @@ class TextParagraph extends AbstractWidget
      * @param string $message
      * @return self
      */
-    public function strikethrough(string $message): TextParagraph
+    public function strikethrough(string $message)
     {
         return $this->text("<strike>{$message}</strike>");
     }
@@ -67,7 +67,7 @@ class TextParagraph extends AbstractWidget
      * @param string $message
      * @return self
      */
-    public function strike(string $message): TextParagraph
+    public function strike(string $message)
     {
         return $this->strikethrough($message);
     }
@@ -79,7 +79,7 @@ class TextParagraph extends AbstractWidget
      * @param string $hex
      * @return self
      */
-    public function color(string $message, string $hex): TextParagraph
+    public function color(string $message, string $hex)
     {
         return $this->text("<font color=\"{$hex}\">{$message}</font>");
     }
@@ -91,7 +91,7 @@ class TextParagraph extends AbstractWidget
      * @param string|null $displayText
      * @return self
      */
-    public function link(string $link, string $displayText = null): TextParagraph
+    public function link(string $link, string $displayText = null)
     {
         return $this->text("<a href=\"{$link}\">".($displayText ?? $link).'</a>');
     }
@@ -101,7 +101,7 @@ class TextParagraph extends AbstractWidget
      *
      * @return self
      */
-    public function break(): TextParagraph
+    public function break()
     {
         return $this->text('<br>');
     }
@@ -112,7 +112,7 @@ class TextParagraph extends AbstractWidget
      * @param string|null $message
      * @return self
      */
-    public static function create(string $message = null): TextParagraph
+    public static function create(string $message = null)
     {
         $widget = new static;
 

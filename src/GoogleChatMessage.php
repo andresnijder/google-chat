@@ -28,9 +28,9 @@ class GoogleChatMessage implements Arrayable
      * Set a specific space's webhook URL where this message should be sent to.
      *
      * @param string $space Either a fully-qualified URL, or a nested configuration key
-     * @return self
+     * @return GoogleChatMessage
      */
-    public function to(string $space): GoogleChatMessage
+    public function to(string $space)
     {
         $this->endpoint = $space;
 
@@ -41,9 +41,9 @@ class GoogleChatMessage implements Arrayable
      * Append text content as a simple text message.
      *
      * @param string $message
-     * @return self
+     * @return GoogleChatMessage
      */
-    public function text(string $message): GoogleChatMessage
+    public function text(string $message)
     {
         $this->payload['text'] = ($this->payload['text'] ?? '').$message;
 
@@ -54,9 +54,9 @@ class GoogleChatMessage implements Arrayable
      * Append simple text content on a new line.
      *
      * @param string $message
-     * @return self
+     * @return GoogleChatMessage
      */
-    public function line(string $message): GoogleChatMessage
+    public function line(string $message)
     {
         $this->text("\n".$message);
 
@@ -67,9 +67,9 @@ class GoogleChatMessage implements Arrayable
      * Append bold text.
      *
      * @param string $message
-     * @return self
+     * @return GoogleChatMessage
      */
-    public function bold(string $message): GoogleChatMessage
+    public function bold(string $message)
     {
         $this->text("*{$message}*");
 
@@ -80,9 +80,9 @@ class GoogleChatMessage implements Arrayable
      * Append italic text.
      *
      * @param string $message
-     * @return self
+     * @return GoogleChatMessage
      */
-    public function italic(string $message): GoogleChatMessage
+    public function italic(string $message)
     {
         $this->text("_{$message}_");
 
@@ -93,9 +93,9 @@ class GoogleChatMessage implements Arrayable
      * Append strikethrough text.
      *
      * @param string $message
-     * @return self
+     * @return GoogleChatMessage
      */
-    public function strikethrough(string $message): GoogleChatMessage
+    public function strikethrough(string $message)
     {
         $this->text("~{$message}~");
 
@@ -106,9 +106,9 @@ class GoogleChatMessage implements Arrayable
      * Append strikethrough text.
      *
      * @param string $message
-     * @return self
+     * @return GoogleChatMessage
      */
-    public function strike(string $message): GoogleChatMessage
+    public function strike(string $message)
     {
         return $this->strikethrough($message);
     }
@@ -117,9 +117,9 @@ class GoogleChatMessage implements Arrayable
      * Append monospace text.
      *
      * @param string $message
-     * @return self
+     * @return GoogleChatMessage
      */
-    public function monospace(string $message): GoogleChatMessage
+    public function monospace(string $message)
     {
         $this->text("`{$message}`");
 
@@ -130,9 +130,9 @@ class GoogleChatMessage implements Arrayable
      * Append monospace text.
      *
      * @param string $message
-     * @return self
+     * @return GoogleChatMessage
      */
-    public function mono(string $message): GoogleChatMessage
+    public function mono(string $message)
     {
         return $this->monospace($message);
     }
@@ -141,9 +141,9 @@ class GoogleChatMessage implements Arrayable
      * Append monospace block text.
      *
      * @param string $message
-     * @return self
+     * @return GoogleChatMessage
      */
-    public function monospaceBlock(string $message): GoogleChatMessage
+    public function monospaceBlock(string $message)
     {
         $this->text("```{$message}```");
 
@@ -155,9 +155,9 @@ class GoogleChatMessage implements Arrayable
      *
      * @param string $link
      * @param string|null $displayText
-     * @return self
+     * @return GoogleChatMessage
      */
-    public function link(string $link, string $displayText = null): GoogleChatMessage
+    public function link(string $link, string $displayText = null)
     {
         if ($displayText) {
             $link = "<{$link}|{$displayText}>";
@@ -172,9 +172,9 @@ class GoogleChatMessage implements Arrayable
      * Append mention text.
      *
      * @param string $userId
-     * @return self
+     * @return GoogleChatMessage
      */
-    public function mention(string $userId): GoogleChatMessage
+    public function mention(string $userId)
     {
         $this->text("<users/{$userId}>");
 
@@ -186,9 +186,9 @@ class GoogleChatMessage implements Arrayable
      *
      * @param string|null $prependText
      * @param string|null $appendText
-     * @return self
+     * @return GoogleChatMessage
      */
-    public function mentionAll(string $prependText = null, string $appendText = null): GoogleChatMessage
+    public function mentionAll(string $prependText = null, string $appendText = null)
     {
         $this->text("{$prependText}<users/all>{$appendText}");
 
@@ -199,9 +199,9 @@ class GoogleChatMessage implements Arrayable
      * Add a one or more cards to the message.
      *
      * @param \NotificationChannels\GoogleChat\Card|\NotificationChannels\GoogleChat\Card[] $card
-     * @return self
+     * @return GoogleChatMessage
      */
-    public function card($card): GoogleChatMessage
+    public function card($card)
     {
         $cards = Arr::wrap($card);
 
@@ -218,7 +218,7 @@ class GoogleChatMessage implements Arrayable
      *
      * @return string|null
      */
-    public function getSpace(): ?string
+    public function getSpace()
     {
         return $this->endpoint;
     }
@@ -260,9 +260,9 @@ class GoogleChatMessage implements Arrayable
      * text message using the provided message string.
      *
      * @param string|null $text
-     * @return self
+     * @return GoogleChatMessage
      */
-    public static function create(string $text = null): GoogleChatMessage
+    public static function create(string $text = null)
     {
         $message = new static;
 

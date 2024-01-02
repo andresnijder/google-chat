@@ -16,7 +16,7 @@ class Buttons extends AbstractWidget
      * @param \NotificationChannels\GoogleChat\Components\Button\AbstractButton|\NotificationChannels\GoogleChat\Components\Button\AbstractButton[] $button
      * @return self
      */
-    public function button($button): Buttons
+    public function button($button)
     {
         $buttons = Arr::wrap($button);
 
@@ -33,7 +33,7 @@ class Buttons extends AbstractWidget
      * @param \NotificationChannels\GoogleChat\Components\Button\AbstractButton|\NotificationChannels\GoogleChat\Components\Button\AbstractButton[]|null $buttons
      * @return self
      */
-    public static function create($buttons = null): Buttons
+    public static function create($buttons = null)
     {
         $widget = new static;
 
